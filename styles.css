@@ -1,0 +1,303 @@
+/*Insertar fuente desde un archivo local*/
+
+@font-face {
+    font-family: "jurrasic park";
+    src: url(./media/fuente/Jurassic\ Park.ttf);
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Fira Sans Condensed', sans-serif;
+    user-select: none;
+}
+
+    /*Estilos generales*/
+
+video{
+    width: 100%;
+    height: 100vh;
+    object-fit: cover; /*ocupamos todo el tamaño disponible, Rellena la imagen en el espacio del contenedor padre*/
+    position: absolute;
+    /* position: relative */
+}
+img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+ul{
+    list-style: none;
+    padding-left: 0;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+    /* Banner Netflix */
+
+.background-banner{
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;/*con esta opción hacemos que todo el contenido que sobresale de su contenedor se oculte.*/
+}
+.banner{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    /*Mediante position:absolute en el banner y en el video, posicionamos todo el contenido de banner sobre el video 
+    También se podría hacer con un position relative en el video y las posiciones a 0 en el banner*/
+    
+    position: absolute;
+    /* top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; */
+    background-color: black;
+    background: linear-gradient(0deg, rgb(0, 0, 0) 0%,rgba(0, 0, 0, .9) 1%, rgba(0, 0, 0, 0) 59%, rgba(0, 0, 0, 1) 100%);
+}
+
+/* Menu */
+
+.menu{
+    width: 95%;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    font-size: 1em;
+}
+.navegacion{
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 1em;
+}
+@media(min-width:400px) {
+    .navegacion{
+        gap: 15px;
+    }
+
+}
+
+/* Menu izquierda */
+
+.logo{
+    width: 90px;
+    height: 40px;
+}
+@media(min-width:768px) {
+    .logo{
+        width: 110px;
+        height: 60px;
+    }
+
+}
+@media(min-width:992px) {
+    .navegacion-izquierda li:nth-child(2){/*seleccionamos el li hijo Explorar*/
+        display: none;
+    }
+
+}
+/*ocultar menu version mobile*/
+.navegacion-izquierda li:nth-child(3),
+.navegacion-izquierda li:nth-child(4),
+.navegacion-izquierda li:nth-child(5),
+.navegacion-izquierda li:nth-child(6),
+.navegacion-izquierda li:nth-child(7){
+    display: none;
+}
+/*mostrar menu version Desktop*/
+@media(min-width:992px) {
+.navegacion-izquierda li:nth-child(3),
+.navegacion-izquierda li:nth-child(4),
+.navegacion-izquierda li:nth-child(5),
+.navegacion-izquierda li:nth-child(6),
+.navegacion-izquierda li:nth-child(7){
+    display: flex;
+}
+}
+
+/*Menu Derecha*/
+
+.navegacion-derecha li:nth-child(1),/*1º hijo de la ul*/
+.navegacion-derecha li:nth-child(4){/*4º hijo de la ul*/
+    width: 25px;
+}
+.usuario{
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+/* Ocultamos el menu derecha  en versión mobile*/
+.navegacion-derecha li:nth-child(1),
+.navegacion-derecha li:nth-child(2),
+.navegacion-derecha li:nth-child(3),
+.navegacion-derecha li:nth-child(4){
+    display: none;
+}
+
+/*Mostramos el menu derecha (lupa,campana) en versión mobileBig, tablet, Desktop */
+@media(min-width:330px) {
+.navegacion-derecha li:nth-child(1),
+.navegacion-derecha li:nth-child(4){
+    display: flex;
+}
+}
+/*Mostramos el menu derecha (niños, DVD) Desktop */
+@media(min-width:992px) {
+    .navegacion-derecha li:nth-child(2),
+    .navegacion-derecha li:nth-child(3){
+        display: flex;
+}
+}
+.navegacion li a{
+    transition: all .2s;
+}
+.navegacion li a:hover{
+    color: rgb(160, 118, 64);
+    color: rgb(114, 114, 110);
+}
+
+/* Info Pelicula  */
+.infoPelicula{
+    flex: 1; /*para que ocupe todo el espacio disponible*/
+    width: 95%;
+    margin-inline: auto;/*margin: auto*/
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: start;
+    gap: 1em;
+}
+.imgLogo-imagen{
+    min-width: 500px;
+}
+.imgLogo-text{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.imgLogo-text button{
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 10px;
+    transition: all .3s;
+    cursor: pointer;
+}
+.imgLogo-text button:nth-child(1){
+    border: 1px solid white;
+    background-color: white;
+}
+.imgLogo-text button:nth-child(1):hover{
+   background-color: rgb(186, 50, 50);
+}
+.imgLogo-text button:nth-child(2){
+    border: 1px solid #6d6d63b0;
+    background-color:  #6d6d63b3;
+    color: whitesmoke;
+}
+.imgLogo-text button:nth-child(2):hover{
+    background-color: rgb(86, 186, 50);
+    border: 1px solid white;
+ }
+
+ /*Footer*/
+
+ .footer{
+    padding-top: 1em;
+    background-color: black;
+ }
+ .footer-container{
+    width: 95%;
+    margin-inline: auto;
+ }
+ .iconos{
+    display: flex;
+    gap: 20px;
+}
+.iconos li{
+    width: 30px;
+    height: 30px;
+}
+
+.informacion{
+    display: grid;
+    color: rgb(133, 133, 133);
+    gap: 20px;
+    margin-block:20px;
+    font-size: 15px;
+}
+@media (min-width:400px) {
+    .informacion{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (min-width:768px) {
+    .informacion{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+@media (min-width:992px) {
+    .informacion{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+.informacion p{
+    cursor: pointer;
+}
+.informacion p:hover{
+    color: white;
+}
+.idioma{
+    color: white;
+    padding: 8px;
+    font-weight: 700;
+}
+.design{
+    color: white;
+    padding: 10px;
+    font-weight: 900;
+    text-align: center;
+}
+/*catalogo peliculas*/
+.catalogos{
+    padding-block: 2px;
+    background-color: black;
+    color: white;
+
+  
+}
+.catalogo-peliculas{
+    width: 45%;
+    margin-inline: auto;
+}
+.catalogo-peliculas h1,
+.catalogo-peliculas h2{
+    padding: 10px;
+}
+
+.peliculas{
+    overflow-x: scroll;
+    display: flex;
+    gap: 12px;
+}
+.peliculas::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+}
+.article img{
+    min-width: 200px;
+    height: auto;
+}
+
+
+

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,300;0,400;0,500;1,600&family=Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Banner Netflix -->
+
+    <aside class="background-banner">
+        <video muted autoplay loop poster="./media/videos/background-video.mp4">
+            <!-- Si el navegador no reconoce el video se insertará la imágen en lugar del video-->
+            <source src="media/videos/background-video.mp4" type="video/mp4">
+            <img src="./media/imgs/fondo.jpg" alt="Imagen background">
+        </video>
+        <div class="banner">
+            <div class="menu"><!--menu navegador-->
+                <nav>
+                    <ul class="navegacion navegacion-izquierda">
+                        <li class="logo"><a href="#"><img src="./media/imgs/netflix (1).png" alt="Netflix"></a></li>
+                        <li><a href="#">Explorar</a></li>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Series</a></li>
+                        <li><a href="#">Peliculas</a></li>
+                        <li><a href="#">Novedades Populares</a></li>
+                        <li><a href="#">Mi lista</a></li>
+                    </ul>
+                </nav>
+                <nav>
+                    <ul class="navegacion navegacion-derecha">
+                        <li><a href="#"><img src="./media/imgs/lupa.svg" alt="lupa"></a></li>
+                        <li><a href="#">Niños</a></li>
+                        <li><a href="#">DVD</a></li>
+                        <li><a href="#"><img src="./media/imgs/campana.png" alt="campana"></a></li>
+                        <li class="usuario"><a href="#"><img src="./media/imgs/photo1.png" alt="photo"></a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="infoPelicula">
+                <div class="imgLogo-imagen">
+                    <img src="./media/imgs/imagotipo-jurassic.webp" alt="logo jurassic park">
+                </div>
+                <div class="imgLogo-text">
+                    <button>⏵Play</button>
+                    <button>ⓘ More Info</button>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Catálogo películas Netflix -->
+
+    <main class="catalogos">
+        <section class="catalogo-peliculas">
+            <h1>Peliculas Populares</h1>
+            <div class="peliculas" id="populares">
+
+            </div>
+        </section>
+        <section class="catalogo-peliculas">
+            <h1>Peliculas Estrenos</h1>
+            <div class="peliculas" id="estrenos">
+
+            </div>
+        </section>
+        <section class="catalogo-peliculas">
+            <h1>Películas más vistas</h1>
+            <div class="peliculas" id="vistas">
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+
+    <footer class="footer">
+        <div class="footer-container">
+            <ul class="iconos">
+                <li><a href="#"><img src="./media/iconos-redes/github.svg" alt="github"></a></li>
+                <li><a href="#"><img src="./media/iconos-redes/linkedin.svg" alt="linkedin"></a></li>
+                <li><a href="#"><img src="./media/iconos-redes/instagram.svg" alt="instagram"></a></li>
+                <li><a href="#"><img src="./media/iconos-redes/facebook.svg" alt="facebook"></a></li>
+            </ul>
+            <div class="informacion">
+                <p>Preguntas frecuentes</p>
+                <p>Prensa</p>
+                <p>Formas de ver</p>
+                <p>Preferencias de cookies</p>
+                <p>Pruebas de velocidad</p>
+                <p>Centro de ayuda</p>
+                <p>Relaciones con inversionistas</p>
+                <p>Terminos de uso</p>
+                <p>Informacion corporativa</p>
+                <p>Cuenta</p>
+                <p>Empleo</p>
+                <p>Privacidad</p>
+                <p>Contactanos</p>
+                <p>Solo en netflix</p>
+            </div>
+            <p class="idioma">🌎︎ Español</p>
+            <p class="design">@ Darila 2023</p>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
