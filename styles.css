@@ -273,11 +273,9 @@ a{
     padding-block: 2px;
     background-color: black;
     color: white;
-
-  
 }
 .catalogo-peliculas{
-    width: 45%;
+    width: 95%;  
     margin-inline: auto;
 }
 .catalogo-peliculas h1,
@@ -294,7 +292,7 @@ a{
     width: 0;
     height: 0;
 }
-.article img{
+.pelicula{
     min-width: 200px;
     height: auto;
 }
