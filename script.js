@@ -1,65 +1,56 @@
-//selección de elementos del DOM
+const p1 =  'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=d4983dafdd2af3213fc32951bd597ec6'
+const p2 =  'https://api.themoviedb.org/3/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc&api_key=d4983dafdd2af3213fc32951bd597ec6'
+const p3 =    'https://api.themoviedb.org/3/discover/movie?with_genres=18&primary_release_year=2014&api_key=d4983dafdd2af3213fc32951bd597ec6'
 
-let populares = document.getElementById("populares");
-let estrenos = document.getElementById("estrenos");
-let vistas = document.getElementById("vistas");
+const urls = [p1, p2, p3]
 
-// Funcion llamada Api, controlando excepciones con try catch
+// const urls = [
+//     'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=d4983dafdd2af3213fc32951bd597ec6',
+//     'https://api.themoviedb.org/3/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc&api_key=d4983dafdd2af3213fc32951bd597ec6',
+//     'https://api.themoviedb.org/3/discover/movie?with_genres=18&primary_release_year=2014&api_key=d4983dafdd2af3213fc32951bd597ec6'
+// ];
 
-function llamadaApiPeliculas(){
+//Crearemos una promesa para cada solicitud a la api
 
-try{
+window.addEventListener('DOMContentLoaded',()=>{ //Cuando cargue nuestro dom
 
-    
+    const peticiones = urls.map(peticion=>fetch(peticion));//guardamos en la variable peticiones una promesa por cada solicitud, iterandolas con .map
+    Promise.all(peticiones).then(values=>{// con promise.all esperamos a que todas las solicitudes se completen
+        return Promise.all(values.map(res=>res.json()))//convertimos a cada respuesta a formato json y retirnamos el resultado
 
-const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkNDk4M2RhZmRkMmFmMzIxM2ZjMzI5NTFiZDU5N2VjNiIsInN1YiI6IjY0ZDg5ODU3YjZjMjY0MTE1NjljNmYzNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.CvGdsCUQNCYyZlTWwFYK4LEWL2IFNbNunJJpicrWBNw'
-    }
-  };
-
-
-
-fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
-.then(res => res.json())
-.then(dat =>{
-    console.log(dat)
-
-    llamadaPeliculasPopulares(dat);
-
-})
-
-function llamadaPeliculasPopulares(dat){
-    dat.results.forEach(element => {
-        const article = document.createElement("article");
-        article.classList.add("article");
-
-        const img = document.createElement("img");
-        populares.appendChild(article)
-        img.src = 'https://image.tmdb.org/t/p/original/'+ element.poster_path;
-        article.appendChild(img)
-    });
-
-    dat.results.forEach(element =>{
-        const article = document.createElement("article")
-        article.classList.add("article")
-
-        const img = document.createElement("img")
-        estrenos.appendChild(article)
-        img.src = 'https://image.tmdb.org/t/p/original/'+ element.poster_path;
-        article.appendChild(img)
     })
-}
-
-
-
-
-}catch{
-    console.log("Error!!!");
-}
-
-}
-
-llamadaApiPeliculas();
+    
+    .then(catologos=>{//es la respuesta json = res
+        const [catalogoUno,catalogoDos,catalogoTres] = catologos;
+        // Catalogo uno
+        const populares = document.getElementById('populares');
+        catalogoUno.results.forEach(pelicula => {
+            const article = document.createElement('article');
+            article.classList.add('pelicula');
+            const img = document.createElement('img');
+            img.src = 'https://image.tmdb.org/t/p/original/'+pelicula.poster_path;
+            article.append(img);
+            populares.append(article);
+        });
+        // Catalogo dos
+        const estrenos = document.getElementById('estrenos');
+        catalogoDos.results.forEach(pelicula => {
+            const article = document.createElement('article');
+            article.classList.add('pelicula');
+            const img = document.createElement('img');
+            img.src = 'https://image.tmdb.org/t/p/original/'+pelicula.poster_path;
+            article.append(img);
+            estrenos.append(article);
+        });
+        // Catalogo tres
+        const vistas = document.getElementById('vistas');
+        catalogoTres.results.forEach(pelicula => {
+            const article = document.createElement('article');
+            article.classList.add('pelicula');
+            const img = document.createElement('img');
+            img.src = 'https://image.tmdb.org/t/p/original/'+pelicula.poster_path;
+            article.append(img);
+            vistas.append(article);
+        });
+    });
+});
